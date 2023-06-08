@@ -2,26 +2,35 @@ package ch_3_13
 
 import java.text.DecimalFormat
 
-class Employee(firstName: String, lastName: String, mountSalary: Double) {
-    val salary = mountSalary * 12
+class Employee(
+    private val firstName: String,
+    private val lastName: String,
+    private var mountSalary: Double
+) {
     val df = DecimalFormat("#.##")
 
-    fun calculateSalary(): Double {
-        if (0 >= salary) {
-            println("to amount of salary is zero")
-        }
 
-        return df.format(salary).toDouble()
+    fun getSalary(): Double {
+        return mountSalary
+
+    }
+
+    fun setSalary(newSalary: Double) {
+        mountSalary = newSalary
+    }
+
+    fun calculateSalary(): Double {
+        return df.format(mountSalary).toDouble()
     }
 
     fun calculateTenPercentOfSalary(): Double {
 
-        if (0 >= salary) {
+        if (0 >= mountSalary) {
             println("to amount of salary is zero")
         }
 
-        val tenPer2 = salary*0.1
-        val lastTenPer = salary+tenPer2
+        val tenPer = mountSalary * 0.1
+        val lastTenPer = mountSalary + tenPer
         return df.format(lastTenPer).toDouble()
 
     }
