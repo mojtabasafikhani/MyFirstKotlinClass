@@ -6,9 +6,28 @@ class Car(
     private val maxSpeed: Int
 ) {
     var currentSpeed = 0
+    var isStart = false
+
+    fun compare(car: Car){
+
+        if (car.maxSpeed>maxSpeed){
+
+            println("${car.brand+car.model} is faster")
+        }else{
+            println("${brand+model} is faster")
+        }
+
+    }
+    fun calculateDuration(destination: Int){
+
+        println("duration time is ${destination/currentSpeed.toDouble()} hour")
+    }
 
     fun increaseSpeed() {
-
+    if (!isStart) {
+        println("the car in off")
+        return
+    }
         currentSpeed += 50
 
         if (currentSpeed > maxSpeed) {
@@ -24,6 +43,10 @@ class Car(
     }
 
     fun decreaseSpeed() {
+        if (!isStart) {
+            println("the car in off")
+            return
+        }
         currentSpeed -= 30
         if (currentSpeed <= 0){
             currentSpeed = 0
@@ -32,6 +55,7 @@ class Car(
     }
 
     fun start() {
+        isStart = true
         println("start")
     }
 
