@@ -26,7 +26,7 @@ fun main() {
 //    println("invoice amount is ${emp.getSalary()}")
 //    emp.setSalary(2.0)
 //    println("invoice amount is ${emp.getSalary()}")
-
+//
 //    val empSalary = emp.calculateSalary()
 //    println("invoice amount is $empSalary")
 //    val empSalaryTenPer = emp.calculateTenPercentOfSalary()
