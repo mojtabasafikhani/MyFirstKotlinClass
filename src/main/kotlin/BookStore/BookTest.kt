@@ -30,7 +30,7 @@ private fun showMainScreen() {
     }
 }
 
-fun showManageScreen(){
+fun showManageScreen() {
     println(" Choose one option\n ********************************************")
     println(" 1.Add book")
     println(" 2.Delete book")
@@ -41,15 +41,32 @@ fun showManageScreen(){
     try {
         val scanner = Scanner(System.`in`)
         when (scanner.nextInt()) {
-            1 -> println("Add book")
+            1 -> addBook()
             2 -> print("Delete book")
             3 -> print("Edit")
             4 -> showMainScreen()
             else -> print("You did not select correct code")
         }
 
-    } catch (e:Exception) {
+    } catch (e: Exception) {
         println("You did not select correct code")
     }
+
+}
+
+fun addBook() {
+    val scanner = Scanner(System.`in`)
+    print("book name: ")
+    val bookName = scanner.nextLine()
+    print("author name: ")
+    val authorName = scanner.nextLine()
+    print("book price: ")
+    val bookPrice = scanner.nextDouble()
+    print("book id: ")
+    val bookId = scanner.nextInt()
+
+    val bishoori = Book(bookName, authorName, bookPrice, bookId)
+    var bookManage = BookManage()
+    bookManage.addBook(bishoori)
 
 }
