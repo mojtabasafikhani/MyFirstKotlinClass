@@ -11,7 +11,7 @@ fun main() {
 class BookTest {
 
     private val bookManage = BookManage()
-    val scanner = Scanner(System.`in`)
+    private val scanner = Scanner(System.`in`)
 
     init {
         showMainScreen()
@@ -42,7 +42,7 @@ class BookTest {
         println(" Choose one option\n ********************************************")
         println(" 1.Add book")
         println(" 2.Delete book")
-        println(" 3.Edite")
+        println(" 3.Edit")
         println(" 4.Back to main page")
         println(" *********************************************")
         print(" Your option: ")
@@ -50,7 +50,7 @@ class BookTest {
 
             when (scanner.nextInt()) {
                 1 -> addBook()
-                2 -> showDeleteScreen(scanner.nextInt())
+                2 -> showDeleteScreen()
                 3 -> showEditScreen()
                 4 -> showMainScreen()
                 else -> print("You did not select correct code")
@@ -63,8 +63,10 @@ class BookTest {
     }
 
     private fun showEditScreen() {
+        print(" Write the name of the alternative book:")
         val sc = Scanner(System.`in`)
         val name = sc.nextLine()
+        print(" write previous bookID: ")
         val id = sc.nextInt()
         println(id)
         println(name)
@@ -111,14 +113,20 @@ class BookTest {
 
     }
 
-    private fun showDeleteScreen(id: Int) {
-        bookManage.deleteBook(id)
+    private fun showDeleteScreen() {
+        print(" Enter the ID of the intended book: ")
+        val id = scanner.nextInt()
+        deleteBook(id)
         showMainScreen()
 
     }
 
-    fun editBook(id: Int, name: String) {
+    private fun editBook(id: Int, name: String) {
         bookManage.editBook(id, name)
+    }
+
+    private fun deleteBook(id: Int){
+        bookManage.deleteBook(id)
     }
 }
 
