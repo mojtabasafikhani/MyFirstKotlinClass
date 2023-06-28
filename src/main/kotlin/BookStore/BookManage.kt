@@ -5,8 +5,16 @@ class BookManage {
 
     private val arrayList = ArrayList<Book>(fakeData)
     fun addBook(book: Book) {
-        arrayList.add(book)
+        for (index in 0..arrayList.lastIndex) {
+            val bookID = arrayList[index]
+            if (bookID.id == book.id) {
+                println(" same ID")
+                return
+            }
 
+        }
+        arrayList.add(book)
+        println(" the ${book.name} book was add")
 
     }
 
