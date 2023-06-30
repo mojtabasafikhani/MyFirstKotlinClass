@@ -52,6 +52,11 @@ class BookManage {
         println(" incorrect ID")
         return
     }
+    fun sortByPrice(){
+        for (index in 0..arrayList.lastIndex) {
+            val topPrice = arrayList[index]
+        }
+    }
 }
 
 

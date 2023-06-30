@@ -97,6 +97,7 @@ class BookTest {
         try {
             when (scanner.nextInt()) {
                 1 -> showBooks()
+                2 -> sortByPrice()
                 else -> print("You did not select correct code")
             }
 
@@ -107,7 +108,6 @@ class BookTest {
     }
 
     private fun showBooks() {
-
         bookManage.showAllBooks()
         showMainScreen()
 
@@ -125,8 +125,13 @@ class BookTest {
         bookManage.editBook(id, name)
     }
 
-    private fun deleteBook(id: Int){
+    private fun deleteBook(id: Int) {
         bookManage.deleteBook(id)
+    }
+
+    private fun sortByPrice() {
+        bookManage.sortByPrice()
+
     }
 }
 
