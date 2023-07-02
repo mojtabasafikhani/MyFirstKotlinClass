@@ -3,7 +3,7 @@ package BookStore
 data class Book(
      var name: String,
      val author : String,
-     val price: Double,
+     var price: Double,
      val id: Int
 ){
      override fun toString(): String {

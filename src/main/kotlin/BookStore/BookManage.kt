@@ -52,11 +52,48 @@ class BookManage {
         println(" incorrect ID")
         return
     }
-    fun sortByPrice(){
-        for (index in 0..arrayList.lastIndex) {
-            val topPrice = arrayList[index]
+
+    fun sortByAscendingPrice() {
+        var sortArrayList = ArrayList<Book>(fakeData)
+        println("aaa $sortArrayList")
+
+        for (index in 0 .. sortArrayList.lastIndex) {
+            for (otherIndex in 0..sortArrayList.lastIndex) {
+
+                if (sortArrayList[index].price > sortArrayList[otherIndex].price) {
+                    val a = sortArrayList[index]
+                    sortArrayList[index] = sortArrayList[otherIndex]
+                    sortArrayList[otherIndex] = a
+                }
+            }
+        }
+        for (index in 0 .. arrayList.lastIndex) {
+            println("${index+1}.${sortArrayList[index]}")
+
         }
     }
+    fun sortByDescendingPrice() {
+        var sortArrayList = ArrayList<Book>(fakeData)
+        println("aaa $sortArrayList")
+
+        for (index in 0..sortArrayList.lastIndex) {
+            for (otherIndex in 0..sortArrayList.lastIndex) {
+
+                if (sortArrayList[index].price > sortArrayList[otherIndex].price) {
+                    val a = sortArrayList[index]
+                    sortArrayList[index] = sortArrayList[otherIndex]
+                    sortArrayList[otherIndex] = a
+                }
+            }
+        }
+        for (index in sortArrayList.lastIndex downTo 0) {
+            val a = sortArrayList.lastIndex - index +1
+            println("$a.${sortArrayList[index]}")
+
+        }
+    }
+
+
 }
 
 

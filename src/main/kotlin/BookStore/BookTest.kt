@@ -92,12 +92,15 @@ class BookTest {
 
     private fun listOfBookSelected() {
         println(" 1.Show books")
+        println(" 2.Show books by ascending price")
+        println(" 3.Show books by descending price")
         println(" *********************************************")
         print(" Your option: ")
         try {
             when (scanner.nextInt()) {
                 1 -> showBooks()
-                2 -> sortByPrice()
+                2 -> sortByAscendingPrice()
+                3 -> sortByDescendingPrice()
                 else -> print("You did not select correct code")
             }
 
@@ -129,8 +132,13 @@ class BookTest {
         bookManage.deleteBook(id)
     }
 
-    private fun sortByPrice() {
-        bookManage.sortByPrice()
+    private fun sortByAscendingPrice() {
+        bookManage.sortByAscendingPrice()
+
+
+    }
+    private fun sortByDescendingPrice() {
+        bookManage.sortByDescendingPrice()
 
     }
 }
