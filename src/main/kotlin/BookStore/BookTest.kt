@@ -132,13 +132,15 @@ class BookTest {
         bookManage.deleteBook(id)
     }
 
-    private fun sortByAscendingPrice() {
-        bookManage.sortByAscendingPrice()
+    private fun sortByDescendingPrice() {
+        bookManage.sortByDescendingPrice()
+        showMainScreen()
 
 
     }
-    private fun sortByDescendingPrice() {
-        bookManage.sortByDescendingPrice()
+    private fun sortByAscendingPrice() {
+        bookManage.sortByAscendingPrice()
+        showMainScreen()
 
     }
 }

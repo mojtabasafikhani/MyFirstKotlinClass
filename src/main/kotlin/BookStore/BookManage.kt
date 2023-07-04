@@ -53,17 +53,16 @@ class BookManage {
         return
     }
 
-    fun sortByAscendingPrice() {
+    fun sortByDescendingPrice() {
         var sortArrayList = ArrayList<Book>(fakeData)
-        println("aaa $sortArrayList")
 
         for (index in 0 .. sortArrayList.lastIndex) {
-            for (otherIndex in 0..sortArrayList.lastIndex) {
+            for (otherIndex in 1..sortArrayList.lastIndex - index) {
 
-                if (sortArrayList[index].price > sortArrayList[otherIndex].price) {
-                    val a = sortArrayList[index]
-                    sortArrayList[index] = sortArrayList[otherIndex]
-                    sortArrayList[otherIndex] = a
+                if (sortArrayList[otherIndex].price > sortArrayList[otherIndex-1].price) {
+                    val a = sortArrayList[otherIndex]
+                    sortArrayList[otherIndex] = sortArrayList[otherIndex - 1]
+                    sortArrayList[otherIndex - 1 ] = a
                 }
             }
         }
@@ -72,27 +71,24 @@ class BookManage {
 
         }
     }
-    fun sortByDescendingPrice() {
+    fun sortByAscendingPrice() {
         var sortArrayList = ArrayList<Book>(fakeData)
-        println("aaa $sortArrayList")
 
-        for (index in 0..sortArrayList.lastIndex) {
-            for (otherIndex in 0..sortArrayList.lastIndex) {
+        for (index in 0 .. sortArrayList.lastIndex) {
+            for (otherIndex in 1..sortArrayList.lastIndex - index) {
 
-                if (sortArrayList[index].price > sortArrayList[otherIndex].price) {
-                    val a = sortArrayList[index]
-                    sortArrayList[index] = sortArrayList[otherIndex]
-                    sortArrayList[otherIndex] = a
+                if (sortArrayList[otherIndex].price < sortArrayList[otherIndex-1].price) {
+                    val a = sortArrayList[otherIndex]
+                    sortArrayList[otherIndex] = sortArrayList[otherIndex - 1]
+                    sortArrayList[otherIndex - 1 ] = a
                 }
             }
         }
-        for (index in sortArrayList.lastIndex downTo 0) {
-            val a = sortArrayList.lastIndex - index +1
-            println("$a.${sortArrayList[index]}")
+        for (index in 0 .. arrayList.lastIndex) {
+            println(" ${index+1}.${sortArrayList[index]}")
 
         }
     }
-
 
 }
 
