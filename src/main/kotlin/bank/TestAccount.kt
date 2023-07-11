@@ -55,8 +55,9 @@ class TestAccount {
     }
 
     private fun addAccount() {
-
+        val accountNumber = (1000..9999).random()
         val scanner = Scanner(System.`in`)
+
         print(" first name: ")
         val firstName = scanner.nextLine()
         print(" last name: ")
@@ -64,10 +65,12 @@ class TestAccount {
         print(" initial capital: ")
         val initialCapital = scanner.nextInt()
 
-        val account = Account(firstName,lastName,initialCapital)
+        val account = Account(firstName, lastName, initialCapital, accountNumber)
         accountsManager.addAccount(account)
+        showMainScreen()
 
 
     }
+
 
 }

@@ -3,13 +3,12 @@ package bank
 class Account(
     val firstName: String,
     val lastName: String,
-//    val accountNumber: Int,
-    val initialCapital: Int
+    val initialCapital: Int,
+    val accountNumber: Int
 ) {
     override fun toString(): String {
-        return "$firstName - $lastName  - $initialCapital"
+        return "$firstName - $lastName - $initialCapital $accountNumber"
     }
 
 
 }
-// TODO: $accountNumber
