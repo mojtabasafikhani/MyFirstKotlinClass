@@ -39,13 +39,16 @@ class TestAccount {
     private fun showAccountsManager() {
         println(" Choose one option\n ********************************************")
         println(" 1.Add account")
+        println(" 2.Deposit")
+        println(" 3.Show main screen")
         print(" Your option is: ")
 
         try {
 
             when (scanner.nextInt()) {
                 1 -> addAccount()
-                2 -> showMainScreen()
+                2 -> deposit()
+                3 -> showMainScreen()
                 else -> print("You did not select correct code")
             }
 
@@ -71,6 +74,25 @@ class TestAccount {
 
 
     }
+    private fun deposit(){
+        val scanner = Scanner(System.`in`)
+        print(" Enter your account number: ")
+        val accountNumber = scanner.nextInt()
+        print(" How much money to deposit: ")
+        val amount = scanner.nextInt()
+        accountsManager.deposit(accountNumber ,amount)
+
+    }
+    private fun whitDraw(){
+        val scanner = Scanner(System.`in`)
+        print(" Enter your account number: ")
+        val accountNumber = scanner.nextInt()
+        print(" How much money to withdrawn: ")
+        val amount = scanner.nextInt()
+        accountsManager.deposit(accountNumber ,amount)
+
+    }
+
 
 
 }
