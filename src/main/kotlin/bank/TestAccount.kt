@@ -20,6 +20,7 @@ class TestAccount {
     private fun showMainScreen() {
         println(" Choose your option \n ************************************")
         println(" 1.showAccountsManager")
+        println(" 2.showAllAccounts")
         println("************************************")
         print(" Your option is: ")
 
@@ -28,6 +29,7 @@ class TestAccount {
 
             when (scanner.nextInt()) {
                 1 -> showAccountsManager()
+                2 -> listOfAccounts()
                 else -> println("You did not select correct code")
             }
         } catch (e: Exception) {
@@ -74,25 +76,50 @@ class TestAccount {
 
 
     }
-    private fun deposit(){
+
+    private fun deposit() {
         val scanner = Scanner(System.`in`)
         print(" Enter your account number: ")
         val accountNumber = scanner.nextInt()
         print(" How much money to deposit: ")
         val amount = scanner.nextInt()
-        accountsManager.deposit(accountNumber ,amount)
-
+        accountsManager.deposit(accountNumber, amount)
+        showMainScreen()
     }
-    private fun whitDraw(){
+
+
+//    private fun whitDraw(){
+//        val scanner = Scanner(System.`in`)
+//        print(" Enter your account number: ")
+//        val accountNumber = scanner.nextInt()
+//        print(" How much money to withdrawn: ")
+//        val amount = scanner.nextInt()
+//        accountsManager.deposit(accountNumber ,amount)
+//
+//    }
+
+    private fun listOfAccounts() {
         val scanner = Scanner(System.`in`)
-        print(" Enter your account number: ")
-        val accountNumber = scanner.nextInt()
-        print(" How much money to withdrawn: ")
-        val amount = scanner.nextInt()
-        accountsManager.deposit(accountNumber ,amount)
+
+        println("1.showAllAccounts")
+        print("your choose is:")
+        try {
+            when (scanner.nextInt()) {
+                1 -> showAllAccounts()
+                else -> print("You did not select correct code")
+            }
+
+        } catch (e: java.lang.Exception) {
+            println("You did not select correct code")
+        }
 
     }
 
+    private fun showAllAccounts() {
+        accountsManager.showAllAccount()
+        showMainScreen()
+
+    }
 
 
 }

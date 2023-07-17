@@ -3,7 +3,7 @@ package bank
 class Account(
     val firstName: String,
     val lastName: String,
-    val initialCapital: Int,
+    var initialCapital: Int,
     val accountNumber: Int
 ) {
     override fun toString(): String {
