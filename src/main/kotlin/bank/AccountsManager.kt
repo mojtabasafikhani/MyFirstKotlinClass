@@ -15,9 +15,9 @@ class AccountsManager {
                 println("accountNumber is same")
                 return
             }
-
         }
         arrayList.add(account)
+//        println("${account.passWord} was add")
 
 //        val first = account.firstName
 //        val last = account.lastName
@@ -38,18 +38,44 @@ class AccountsManager {
     }
 
 
-    fun deposit(accountNumber: Int,amount: Int) {
-        for (index in 0 .. arrayList.lastIndex){
-            if (accountNumber == arrayList[index].accountNumber){
-                arrayList[index].initialCapital =   arrayList[index].initialCapital + amount
-                println(" ${arrayList[index].lastName}'s new balance is ${arrayList[index].accountNumber}")
+    fun withdraw(accountNumber: Int, amount: Int, passWord: Int) {
+        for (index in 0..arrayList.lastIndex) {
+            if (accountNumber == arrayList[index].accountNumber) {
+                if (passWord == arrayList[index].passWord) {
+                    val minus = arrayList[index].initialCapital - amount
+                    var oldList = arrayList[index].copy(initialCapital = minus)
+                    arrayList[index] = oldList
+                    return
+                } else {
+                    println(" password is wrong")
+                    return
+                }
+            } else {
+                println(" account number is wrong")
+                return
+            }
+        }
 
-//                update[index].accountNumber = arrayList[index].apply { accountNumber }
+    }
+
+
+    fun deposit(accountNumber: Int, amount: Int) {
+        for (index in 0..arrayList.lastIndex) {
+            if (accountNumber == arrayList[index].accountNumber) {
+                val add = arrayList[index].initialCapital + amount
+                println(" ${arrayList[index].lastName}'s new balance is ${arrayList[index].accountNumber}")
+                var oldList = arrayList[index].copy(initialCapital = add)
+                arrayList[index] = oldList
+//                var oldAccount: Account = arrayList[index]
+//                var updateAccount: Account = Account(firstName = oldAccount.firstName , oldAccount.lastName , oldAccount.initialCapital+amount , oldAccount.accountNumber)
+//                arrayList[index] = updateAccount
+
 
             }
 
         }
 
     }
+
 
 }

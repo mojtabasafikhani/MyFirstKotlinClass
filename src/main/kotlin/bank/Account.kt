@@ -1,13 +1,14 @@
 package bank
 
-class Account(
+data class Account(
     val firstName: String,
     val lastName: String,
-    var initialCapital: Int,
-    val accountNumber: Int
+    val initialCapital: Int,
+    val accountNumber: Int,
+    val passWord: Int
 ) {
     override fun toString(): String {
-        return "$firstName - $lastName - $initialCapital $accountNumber"
+        return "$firstName - $lastName - $initialCapital $accountNumber $passWord "
     }
 
 

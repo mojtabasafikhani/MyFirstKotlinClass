@@ -42,7 +42,8 @@ class TestAccount {
         println(" Choose one option\n ********************************************")
         println(" 1.Add account")
         println(" 2.Deposit")
-        println(" 3.Show main screen")
+        println(" 3.withdraw")
+        println(" 4.Show main screen")
         print(" Your option is: ")
 
         try {
@@ -50,7 +51,8 @@ class TestAccount {
             when (scanner.nextInt()) {
                 1 -> addAccount()
                 2 -> deposit()
-                3 -> showMainScreen()
+                3 -> whitDraw()
+                4 -> showMainScreen()
                 else -> print("You did not select correct code")
             }
 
@@ -69,8 +71,10 @@ class TestAccount {
         val lastName = scanner.nextLine()
         print(" initial capital: ")
         val initialCapital = scanner.nextInt()
+        print(" password: ")
+        val password = scanner.nextInt()
 
-        val account = Account(firstName, lastName, initialCapital, accountNumber)
+        val account = Account(firstName, lastName, initialCapital, accountNumber, password)
         accountsManager.addAccount(account)
         showMainScreen()
 
@@ -88,15 +92,19 @@ class TestAccount {
     }
 
 
-//    private fun whitDraw(){
-//        val scanner = Scanner(System.`in`)
-//        print(" Enter your account number: ")
-//        val accountNumber = scanner.nextInt()
-//        print(" How much money to withdrawn: ")
-//        val amount = scanner.nextInt()
-//        accountsManager.deposit(accountNumber ,amount)
-//
-//    }
+
+    private fun whitDraw(){
+        val scanner = Scanner(System.`in`)
+        print(" Enter your account number: ")
+        val accountNumber = scanner.nextInt()
+        print(" How much money to withdrawn: ")
+        val amount = scanner.nextInt()
+        print(" Enter your password: ")
+        val passWord = scanner.nextInt()
+        accountsManager.withdraw(accountNumber ,amount,passWord)
+        showMainScreen()
+
+    }
 
     private fun listOfAccounts() {
         val scanner = Scanner(System.`in`)
