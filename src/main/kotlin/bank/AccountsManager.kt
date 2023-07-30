@@ -77,5 +77,39 @@ class AccountsManager {
 
     }
 
+    fun transfer(accountNumber: Int, passWord: Int, transferAmount: Int, destinationAccountNumber: Int) {
+
+        for (index in 0..arrayList.lastIndex) {
+            if (accountNumber == arrayList[index].accountNumber) {
+                if (arrayList[index].initialCapital < transferAmount) {
+                    return
+                }
+
+                if (passWord != arrayList[index].passWord) {
+                    return
+                }
+
+                transferMoney(destinationAccountNumber, transferAmount, index)
+                return
+            }
+        }
+
+        println("user not found")
+    }
+
+    private fun transferMoney(destinationAccountNumber: Int, transferAmount: Int, index: Int) {
+        for (otherIndex in 0..arrayList.lastIndex) {
+            if (destinationAccountNumber == arrayList[otherIndex].accountNumber) {
+                val add = arrayList[otherIndex].initialCapital + transferAmount
+                var otherList = arrayList[otherIndex].copy(initialCapital = add)
+                arrayList[otherIndex] = otherList
+
+                val minus = arrayList[index].initialCapital - transferAmount
+                var oldList = arrayList[index].copy(initialCapital = minus)
+                arrayList[index] = oldList
+                return
+            }
+        }
+    }
 
 }

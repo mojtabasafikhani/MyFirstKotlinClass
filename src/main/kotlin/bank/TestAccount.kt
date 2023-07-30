@@ -43,7 +43,8 @@ class TestAccount {
         println(" 1.Add account")
         println(" 2.Deposit")
         println(" 3.withdraw")
-        println(" 4.Show main screen")
+        println(" 4.transfer")
+        println(" 5.Show main screen")
         print(" Your option is: ")
 
         try {
@@ -52,7 +53,8 @@ class TestAccount {
                 1 -> addAccount()
                 2 -> deposit()
                 3 -> whitDraw()
-                4 -> showMainScreen()
+                4 -> transfer()
+                5 -> showMainScreen()
                 else -> print("You did not select correct code")
             }
 
@@ -92,8 +94,7 @@ class TestAccount {
     }
 
 
-
-    private fun whitDraw(){
+    private fun whitDraw() {
         val scanner = Scanner(System.`in`)
         print(" Enter your account number: ")
         val accountNumber = scanner.nextInt()
@@ -101,7 +102,7 @@ class TestAccount {
         val amount = scanner.nextInt()
         print(" Enter your password: ")
         val passWord = scanner.nextInt()
-        accountsManager.withdraw(accountNumber ,amount,passWord)
+        accountsManager.withdraw(accountNumber, amount, passWord)
         showMainScreen()
 
     }
@@ -125,6 +126,21 @@ class TestAccount {
 
     private fun showAllAccounts() {
         accountsManager.showAllAccount()
+        showMainScreen()
+
+    }
+
+    private fun transfer() {
+        val scanner = Scanner(System.`in`)
+        print(" pls enter your account number: ")
+        val accountNumber = scanner.nextInt()
+        print(" pls enter your password: ")
+        val passWord = scanner.nextInt()
+        print(" pls enter transfer amount: ")
+        val transferAmount = scanner.nextInt()
+        print(" pls enter destination account number: ")
+        val destinationAccountNumber = scanner.nextInt()
+        accountsManager.transfer(accountNumber, passWord, transferAmount, destinationAccountNumber)
         showMainScreen()
 
     }
